@@ -9,4 +9,4 @@ my $q = Finance::Quote->new;
 
 my %info = $q->fetch($module, $isin);
 
-print $info{$isin,"currency"}.','.$info{$isin,"date"}.','.$info{$isin,"nav"};
+print $info{$isin,"currency"}.','.$info{$isin,"date"}.','.$info{$isin,"price"};
