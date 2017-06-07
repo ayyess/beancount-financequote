@@ -35,7 +35,7 @@ class Source(source.Source):
         # remove the `symbol` prefix from the keys (+1 for control character)
         info = {x[len(symbol) + 1:]: info[x] for x in info.keys()}
 
-        if not info['price']:
+        if 'price' not in info:
             return None  # data was not able to be fetched
 
         currency = info['currency']
