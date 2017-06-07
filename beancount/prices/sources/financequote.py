@@ -1,4 +1,4 @@
-"""Fetch prices using Perl's Finance::Quote module.
+"""Fetch prices using Perl's Finance::Quote exchange.
 """
 __copyright__ = "Copyright (C) 2015-2016  Martin Blais"
 __license__ = "GNU GPLv2"
@@ -23,12 +23,12 @@ class Source(source.Source):
         params = [path_to_script]
 
         if ':' in ticker:
-            module, symbol = ticker.split(':')
+            exchange, symbol = ticker.split(':')
         else:
-            # module and symbol were not both supplied
+            # exchange and symbol were not both supplied
             return None
 
-        params = [path_to_script, module, symbol]
+        params = [path_to_script, exchange, symbol]
         # output is a json object with keys in the form "$symbol\u001$variable"
         output = subprocess.check_output(params).decode()
         info = json.loads(output)
