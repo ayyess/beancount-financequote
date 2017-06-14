@@ -1,0 +1,8 @@
+[[http://search.cpan.org/~ecocode/Finance-Quote/][Finance::Quote]] support for [[http://bitbucket.org/blais/beancount/][Beancount]]'s bean-price.
+
+#+BEGIN_EXAMPLE
+$ bean-price -e GBP:financequote/ftfunds:GB00B3X7QG63
+2017-06-06 price ftfunds:GB00B3X7QG63               194.77 GBP
+$ bean-price -e USD:financequote/NASDAQ:GOOG
+2017-06-07 price NASDAQ:GOOG                        979.53 USD
+#+END_EXAMPLE
