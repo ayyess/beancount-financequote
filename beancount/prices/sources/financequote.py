@@ -7,6 +7,7 @@ import datetime
 import os
 import subprocess
 import json
+import pytz
 
 from beancount.core.number import D
 from beancount.prices import source
@@ -40,7 +41,9 @@ class Source(source.Source):
 
         currency = info['currency']
         # Finance::Quote returns date in mm/dd/YY format
+        cst = pytz.timezone('Europe/London')
         trade_date = datetime.datetime.strptime(info['date'], "%m/%d/%Y")
+        trade_date = cst.localize(trade_date)
         price = D(info['price'])
         return source.SourcePrice(price, trade_date, currency)
 
