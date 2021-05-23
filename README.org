@@ -1,16 +1,19 @@
 [[http://search.cpan.org/~ecocode/Finance-Quote/][Finance::Quote]] support for [[http://bitbucket.org/blais/beancount/][Beancount]]'s bean-price.
 
+Finance::Quote requires an ~ALPHAVANTAGE_API_KEY~ environmental variable for currency pairs since Yahoo shut down its finance API.
+One can be acquired at [[https://www.alphavantage.co/support/#api-key][here]] for free.
+
+Add beancount_financequote to the ~PYTHONPATH~ to use.
+
 #+BEGIN_EXAMPLE
-$ bean-price -e GBP:financequote/ftfunds:GB00B3X7QG63
-2017-06-06 price ftfunds:GB00B3X7QG63               194.77 GBP
-$ bean-price -e USD:financequote/NASDAQ:GOOG
+$ bean-price -e GBP:beancount_financequote/mstaruk:GB00B3X7QG63
+2017-06-06 price mstaruk:GB00B3X7QG63               194.77 GBP
+$ bean-price -e USD:beancount_financequote/NASDAQ:GOOG
 2017-06-07 price NASDAQ:GOOG                        979.53 USD
 
-$ bean-price -e USD:financequote/^CURRENCY:USDBTC
+$ export ALPHAVANTAGE_API_KEY=...
+$ bean-price -e USD:beancount_financequote/^CURRENCY:USDBTC
 2018-01-26 price CURRENCY:USDBTC        11358.47342117219392743442231 USD
-$ bean-price -e EUR:financequote/^CURRENCY:EURUSD
+$ bean-price -e EUR:beancount_financequote/^CURRENCY:EURUSD
 2018-01-26 price CURRENCY:EURUSD        0.8060670019335774126601653856 EUR
 #+END_EXAMPLE
-
-Note that Finance::Quote has switched to [[https://www.alphavantage.co][Alpha Vantage]] for currency pairs since Yahoo shut down its finance API.
-Alpha Vantage requires an ~ALPHAVANTAGE_API_KEY~ environmental variable to be set which can be acquired [[https://www.alphavantage.co/support/#api-key][here]] for free.

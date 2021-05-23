@@ -76,11 +76,11 @@ setup(
     download_url="http://bitbucket.org/blais/beancount",
 
     packages = [
-        'beancount.prices.sources',
+        'beancount_financequote',
     ],
 
     package_data = {
-        'beancount.prices.sources' : ['financequote.pl'],
+        'beancount_financequote' : ['financequote.pl'],
         },
 
     # Add optional arguments that only work with some variants of setup().

@@ -10,15 +10,6 @@ use POSIX qw(strftime);
 my $module = $ARGV[0];
 my $isin = $ARGV[1];
 
-
-my %grades;
-$grades{"Foo Bar"}{Mathematics}   = 97;
-$grades{"Foo Bar"}{Literature}    = 67;
-$grades{"Peti Bar"}{Literature}   = 88;
-$grades{"Peti Bar"}{Mathematics}  = 82;
-$grades{"Peti Bar"}{Art}          = 99;
-
-
 use Data::Dumper qw(Dumper);
 
 my $q = Finance::Quote->new;
